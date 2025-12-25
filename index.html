@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Của Tôi</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Khánh An | Portfolio</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <nav class="navbar">
-      <div class="logo">MyPortfolio</div>
+      <div class="logo">KAn<span>.Dev</span></div>
       <ul class="nav-links">
-        <li><a href="#home">Trang chủ</a></li>
+        <li><a href="#home" class="active">Trang chủ</a></li>
         <li><a href="#about">Giới thiệu</a></li>
         <li><a href="#projects">Dự án</a></li>
         <li><a href="#contact">Liên hệ</a></li>
@@ -26,56 +26,124 @@
 
     <section id="home" class="hero">
       <div class="hero-content">
-        <h1>Xin chào, mình là <span class="highlight">Khánh An</span></h1>
-        <p>Web Developer | Mobile Developer</p>
-        <a href="#projects" class="btn">Xem dự án</a>
-      </div>
-    </section>
+        <h3>Xin chào, mình là</h3>
+        <h1>Khánh An</h1>
+        <p>Mình là một <span class="typewriter"></span></p>
+        <div class="cta-buttons">
+          <a href="#projects" class="btn primary-btn">Xem Dự Án</a>
+          <a href="#contact" class="btn secondary-btn">Liên Hệ</a>
+        </div>
 
-    <section id="about" class="container">
-      <h2>Về bản thân</h2>
-      <div class="about-content">
-        <p>
-          Mình là sinh viên năm 4 chuyên ngành CNTT. Mình yêu thích xây dựng
-          giao diện web và các ứng dụng di động...
-        </p>
-        <div class="skills">
-          <span>HTML/CSS</span>
-          <span>JavaScript</span>
-          <span>ReactJS</span>
-          <span>Git</span>
+        <div class="hero-socials">
+          <a href="https://github.com/KAn-1884"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="container">
-      <h2>Dự án nổi bật</h2>
+    <section id="about" class="container hidden">
+      <h2 class="section-title">Về Bản Thân</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            Là sinh viên năm 4 chuyên ngành CNTT tại ĐH KHTN (HCMUS). Mình đam
+            mê tạo ra các giao diện web mượt mà (ReactJS) và đang tìm hiểu sâu
+            hơn về Mobile App cũng như hệ thống IoT.
+          </p>
+        </div>
+        <div class="skills-container">
+          <h3>Kỹ năng chính</h3>
+          <div class="skills">
+            <span class="skill-tag"
+              ><i class="fab fa-html5"></i> HTML5/CSS3</span
+            >
+            <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+            <span class="skill-tag"><i class="fab fa-react"></i> ReactJS</span>
+            <span class="skill-tag"
+              ><i class="fas fa-mobile-alt"></i> Mobile Dev</span
+            >
+            <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+            <span class="skill-tag"
+              ><i class="fas fa-database"></i> Firebase</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container hidden">
+      <h2 class="section-title">Dự Án Nổi Bật</h2>
       <div class="project-grid">
         <div class="project-card">
+          <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
           <h3>Portfolio Cá Nhân</h3>
-          <p>Trang web giới thiệu bản thân sử dụng HTML, CSS, JS thuần.</p>
-          <a href="#">Xem GitHub</a>
+          <p>
+            Website profile với giao diện hiện đại, Responsive và Animations
+            mượt mà.
+          </p>
+          <div class="tech-stack">
+            <small>HTML</small> <small>CSS</small> <small>JS</small>
+          </div>
+          <div class="card-links">
+            <a href="#"><i class="fab fa-github"></i> Code</a>
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
+          </div>
         </div>
+
         <div class="project-card">
+          <div class="card-icon"><i class="fas fa-building"></i></div>
           <h3>App Thiên Phát Lộc</h3>
-          <p>(Demo)Web quản lý của công ty.</p>
-          <a href="https://github.com/KAn-1884/ThienPhatLoc">Xem GitHub</a>
+          <p>
+            Ứng dụng quản lý nội bộ cho công ty xây dựng, tối ưu quy trình làm
+            việc.
+          </p>
+          <div class="tech-stack">
+            <small>React</small> <small>Firebase</small>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/KAn-1884/ThienPhatLoc"
+              ><i class="fab fa-github"></i> Code</a
+            >
+            <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-icon"><i class="fas fa-microchip"></i></div>
+          <h3>Smart Home IoT</h3>
+          <p>Hệ thống nhà thông minh tích hợp AI và Dashboard quản lý.</p>
+          <div class="tech-stack">
+            <small>Arduino</small> <small>C++</small>
+          </div>
+          <div class="card-links">
+            <a href="#"><i class="fab fa-github"></i> Code</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="container">
-      <h2>Liên hệ</h2>
-      <p>Email: ntkan188@gmail.com</p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
+    <section id="contact" class="container hidden">
+      <h2 class="section-title">Liên Hệ</h2>
+      <p>Bạn có dự án thú vị? Hãy kết nối với mình!</p>
+      <div class="contact-box">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>ntkan188@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Ho Chi Minh City, Vietnam</span>
+        </div>
       </div>
     </section>
 
     <footer>
-      <p>&copy; 2024 Bản quyền thuộc về [Tên Bạn]</p>
+      <p>
+        &copy; 2025 Khánh An. Built with <i class="fas fa-heart"></i> & Coffee.
+      </p>
     </footer>
 
     <script src="script.js"></script>

@@ -1,148 +1,345 @@
-/* Reset CSS */
+/* --- 1. Cài đặt chung & Biến màu --- */
+:root {
+  --primary: #00d4ff; /* Màu xanh neon */
+  --secondary: #7b2cbf; /* Màu tím */
+  --dark-bg: #0f172a; /* Nền tối hiện đại */
+  --card-bg: #1e293b;
+  --text-light: #f8fafc;
+  --text-gray: #94a3b8;
+  --glass: rgba(15, 23, 42, 0.8);
+  --shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", sans-serif;
+  scroll-behavior: smooth;
 }
 
-:root {
-  --primary-color: #007bff;
-  --bg-color: #f4f4f4;
-  --text-color: #333;
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  overflow-x: hidden;
 }
 
-html {
-  scroll-behavior: smooth; /* Cuộn mượt khi click menu */
-}
-
-/* Navbar */
+/* --- 2. Navbar Glassmorphism --- */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px 50px;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+  background: var(--glass);
+  backdrop-filter: blur(10px); /* Hiệu ứng làm mờ nền phía sau */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-light);
+  cursor: pointer;
+}
+.logo span {
+  color: var(--primary);
 }
 
 .nav-links {
   list-style: none;
   display: flex;
 }
-
 .nav-links li a {
   text-decoration: none;
-  color: var(--text-color);
-  margin-left: 30px;
-  font-weight: bold;
-  transition: color 0.3s;
+  color: var(--text-light);
+  margin-left: 35px;
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s;
 }
 
+/* Hiệu ứng gạch chân khi hover */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--primary);
+  transition: width 0.3s;
+}
+.nav-links li a:hover::after {
+  width: 100%;
+}
 .nav-links li a:hover {
-  color: var(--primary-color);
+  color: var(--primary);
 }
 
 .burger {
   display: none;
-  cursor: pointer;
   font-size: 1.5rem;
+  color: var(--text-light);
+  cursor: pointer;
 }
 
-/* Hero Section */
+/* --- 3. Hero Section VIP --- */
 .hero {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #74b9ff, #a29bfe);
+  /* Gradient động */
+  background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
   text-align: center;
-  color: white;
+  position: relative;
 }
 
-.hero h1 {
-  font-size: 3rem;
+.hero-content h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
-.highlight {
-  color: #ffeaa7;
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #00d4ff, #7b2cbf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Chữ màu gradient */
 }
-
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: white;
-  color: var(--primary-color);
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-/* Common Section Styles */
-.container {
-  padding: 80px 50px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 2rem;
+.hero-content p {
+  font-size: 1.5rem;
+  color: var(--text-gray);
   margin-bottom: 30px;
-  color: var(--primary-color);
 }
 
-/* Skills */
-.skills span {
-  display: inline-block;
-  padding: 8px 15px;
-  background: #e0e0e0;
-  margin: 5px;
-  border-radius: 20px;
+/* Con trỏ nhấp nháy cho hiệu ứng gõ chữ */
+.typewriter::after {
+  content: "|";
+  animation: blink 1s infinite;
 }
 
-/* Project Grid */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
-.project-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+.cta-buttons .btn {
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.project-card:hover {
+.primary-btn {
+  background: var(--primary);
+  color: var(--dark-bg);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+
+.secondary-btn {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0, 212, 255, 0.6);
+}
+
+.hero-socials {
+  margin-top: 40px;
+}
+.hero-socials a {
+  color: var(--text-gray);
+  font-size: 1.8rem;
+  margin: 0 15px;
+  transition: 0.3s;
+}
+.hero-socials a:hover {
+  color: var(--primary);
+  transform: scale(1.2);
+}
+
+/* --- 4. Container & Animations --- */
+.container {
+  padding: 100px 10%;
+}
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Class ẩn để JS xử lý scroll animation */
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- 5. Skills Chips --- */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.skill-tag {
+  background: var(--card-bg);
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: var(--primary);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.skill-tag:hover {
+  background: var(--primary);
+  color: var(--dark-bg);
   transform: translateY(-5px);
 }
 
-/* Responsive Mobile */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none; /* Ẩn menu trên mobile, sẽ hiện bằng JS */
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: white;
-    width: 50%;
-    box-shadow: -2px 5px 5px rgba(0, 0, 0, 0.1);
-  }
+/* --- 6. Project Cards (VIP Design) --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
 
-  .nav-links.active {
-    display: flex;
+.project-card {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+  border-color: var(--primary);
+}
+
+.card-icon {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.project-card p {
+  color: var(--text-gray);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.tech-stack {
+  margin-bottom: 20px;
+}
+.tech-stack small {
+  display: inline-block;
+  margin-right: 10px;
+  color: var(--secondary);
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.card-links a {
+  text-decoration: none;
+  color: var(--text-light);
+  margin-right: 20px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+.card-links a:hover {
+  color: var(--primary);
+}
+
+/* --- 7. Contact --- */
+.contact-box {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  color: var(--text-gray);
+}
+.contact-item i {
+  color: var(--primary);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #0b1120;
+  color: var(--text-gray);
+  margin-top: 50px;
+}
+
+/* --- Responsive Mobile --- */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .nav-links {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    background: var(--card-bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  }
+  .nav-links.nav-active {
+    transform: translateX(0%);
   }
   .nav-links li {
-    margin: 15px 0;
+    margin: 20px 0;
   }
   .burger {
     display: block;
+    z-index: 1001;
   }
 }
